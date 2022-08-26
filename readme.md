@@ -1,14 +1,14 @@
-# <img src="/src/icon.png" height="30px"> Verify.Newtonsoft.Json
+# <img src="/src/icon.png" height="30px"> Verify.NewtonsoftJson
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ej794va900x9257f?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-Newtonsoft-Json)
-[![NuGet Status](https://img.shields.io/nuget/v/Verify.Newtonsoft.Json.svg)](https://www.nuget.org/packages/Verify.Newtonsoft.Json/)
+[![Build status](https://ci.appveyor.com/api/projects/status/ej794va900x9257f?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-NewtonsoftJson)
+[![NuGet Status](https://img.shields.io/nuget/v/Verify.NewtonsoftJson.svg)](https://www.nuget.org/packages/Verify.NewtonsoftJson/)
 
-Adds [Verify](https://github.com/VerifyTests/Verify) support for converting Newtonsoft types.
+Adds [Verify](https://github.com/VerifyTests/Verify) support for converting Newtonsoft.Json types (JObject and JArray).
 
 
 ## NuGet package
 
-https://nuget.org/packages/Verify.Newtonsoft.Json/
+https://nuget.org/packages/Verify.NewtonsoftJson/
 
 
 ## Usage
@@ -29,4 +29,4 @@ public static class ModuleInitializer
 
 ## Icon
 
-[Clock](https://thenounproject.com/term/clock/731041/) designed by [Mooyai Khomsun Chaiwong](https://thenounproject.com/mooyai/) from [The Noun Project](https://thenounproject.com/).
+[Pattern](https://thenounproject.com/term/pattern/1440985/) designed by [Shadows of love](https://thenounproject.com/vinoth7089/) from [The Noun Project](https://thenounproject.com/).
