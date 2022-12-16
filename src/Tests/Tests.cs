@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Argon;
 
 [UsesVerify]
 public class Tests
@@ -27,4 +27,22 @@ public class Tests
     [Fact]
     public Task TestJArray() =>
         Verify(JArray.Parse(jsonArray));
+
+    [Fact]
+    public Task TestAdapter()
+    {
+        var newtonsoftJsonConverter = new KeysJsonConverter(typeof(Employee));
+        var verifyJsonConverter = new ArgonJsonConverterAdapter(newtonsoftJsonConverter, new Newtonsoft.Json.JsonSerializer());
+        Employee employee = new Employee
+        {
+            FirstName = "James",
+            LastName = "Newton-King",
+            Roles = new List<string>
+            {
+                "Admin"
+            }
+        };
+        string json = JsonConvert.SerializeObject(employee, Formatting.Indented, verifyJsonConverter);
+        return VerifyJson(json);
+    }
 }
