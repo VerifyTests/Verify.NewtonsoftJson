@@ -1,4 +1,4 @@
-using Argon;
+using Newtonsoft.Json.Linq;
 
 [UsesVerify]
 public class Tests
@@ -49,7 +49,7 @@ public class Tests
                 "Admin"
             }
         };
-        string json = JsonConvert.SerializeObject(employee, Formatting.Indented, verifyJsonConverter);
+        string json = Argon.JsonConvert.SerializeObject(employee, Argon.Formatting.Indented, verifyJsonConverter);
         return VerifyJson(json);
     }
 }
