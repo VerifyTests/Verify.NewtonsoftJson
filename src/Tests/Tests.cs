@@ -28,6 +28,13 @@ public class Tests
     public Task TestJArray() =>
         Verify(JArray.Parse(jsonArray));
 
+    public class Employee
+    {
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public IList<string>? Roles { get; set; }
+    }
+
     [Fact]
     public Task TestAdapter()
     {
