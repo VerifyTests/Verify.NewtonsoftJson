@@ -4,15 +4,25 @@ using NewtonsoftJsonConverter = Newtonsoft.Json.JsonConverter;
 using NewtonsoftJsonSerializer = Newtonsoft.Json.JsonSerializer;
 using NewtonsoftJsonWriter = Newtonsoft.Json.JsonWriter;
 
+
+/// <summary>
+/// This class implements the <a href="https://en.wikipedia.org/wiki/Adapter_pattern">adapter pattern</a>
+/// for using existing implementation of <see cref="Newtonsoft.Json.JsonConverter"/> in place of a <see cref="Argon.JsonConverter"/>.
+/// </summary>
 public class ArgonJsonConverterAdapter : ArgonJsonConverter
 {
     private readonly NewtonsoftJsonConverter _implementation;
     private readonly NewtonsoftJsonSerializer _newtonsoftJsonSerializer;
 
-    public ArgonJsonConverterAdapter(NewtonsoftJsonConverter implementation, NewtonsoftJsonSerializer newtonsoftJsonSerializer)
+    /// <summary>
+    /// <inheritdoc cref="ArgonJsonConverterAdapter"/>
+    /// </summary>
+    /// <param name="implementation">The wrapped instance used under the hood</param>
+    /// <param name="newtonsoftJsonSerializer">You can pass a serializer to customize the behavior</param>
+    public ArgonJsonConverterAdapter(NewtonsoftJsonConverter implementation, NewtonsoftJsonSerializer? newtonsoftJsonSerializer = null)
     {
         _implementation = implementation;
-        _newtonsoftJsonSerializer = newtonsoftJsonSerializer;
+        _newtonsoftJsonSerializer = newtonsoftJsonSerializer ?? new NewtonsoftJsonSerializer();
     }
 
     public override bool CanRead => false;

@@ -1,0 +1,12 @@
+﻿{
+  Keys: [
+    FirstName,
+    LastName,
+    Roles
+  ],
+  FirstName: James,
+  LastName: Newton-King,
+  Roles: [
+    Admin
+  ]
+}

@@ -39,7 +39,7 @@ public class Tests
     public Task TestAdapter()
     {
         var newtonsoftJsonConverter = new KeysJsonConverter(typeof(Employee));
-        var verifyJsonConverter = new ArgonJsonConverterAdapter(newtonsoftJsonConverter, new Newtonsoft.Json.JsonSerializer());
+        var verifyJsonConverter = new ArgonJsonConverterAdapter(newtonsoftJsonConverter);
         Employee employee = new Employee
         {
             FirstName = "James",
@@ -51,5 +51,62 @@ public class Tests
         };
         string json = Argon.JsonConvert.SerializeObject(employee, Argon.Formatting.Indented, verifyJsonConverter);
         return VerifyJson(json);
+    }
+
+    [Fact]
+    public Task TestAdapterWithScrubber()
+    {
+        var newtonsoftJsonConverter = new KeysJsonConverter(typeof(Employee));
+        var verifyJsonConverter = new ArgonJsonConverterAdapter(newtonsoftJsonConverter, new Newtonsoft.Json.JsonSerializer());
+        Employee employee = new Employee
+        {
+            FirstName = "James",
+            LastName = "Newton-King",
+            Roles = new List<string>
+            {
+                "Admin",
+                "Scrub"
+            }
+        };
+        string json = Argon.JsonConvert.SerializeObject(employee, Argon.Formatting.Indented, verifyJsonConverter);
+        var settings = new VerifySettings();
+        settings.ScrubLinesContaining("Scrub");
+        return VerifyJson(json, settings);
+    }
+
+    [Fact]
+    public Task TestAdapterWithIgnoredMembers()
+    {
+        var newtonsoftJsonConverter = new KeysJsonConverter(typeof(Employee));
+        var verifyJsonConverter = new ArgonJsonConverterAdapter(newtonsoftJsonConverter, new Newtonsoft.Json.JsonSerializer());
+        Employee employee = new Employee
+        {
+            FirstName = "James",
+            LastName = "Newton-King",
+            Roles = new List<string>
+            {
+                "Admin",
+                "Scrub"
+            }
+        };
+        string json = Argon.JsonConvert.SerializeObject(employee, Argon.Formatting.Indented, verifyJsonConverter);
+        var settings = new VerifySettings();
+        settings.IgnoreMember("Roles");
+        return VerifyJson(json, settings);
+    }
+
+    [Fact]
+    public Task TestVerifierConfiguration()
+    {
+        Employee employee = new Employee
+        {
+            FirstName = "James",
+            LastName = "Newton-King",
+            Roles = new List<string>
+            {
+                "Admin"
+            }
+        };
+        return Verify(employee);
     }
 }

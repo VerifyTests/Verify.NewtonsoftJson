@@ -1,4 +1,6 @@
-﻿public static class ModuleInitializer
+using static Tests;
+
+public static class ModuleInitializer
 {
     #region enable
 
@@ -11,5 +13,15 @@
         #endregion
 
         VerifyDiffPlex.Initialize();
+
+        #region adapter
+        VerifierSettings.AddExtraSettings(
+            _ =>
+            {
+                _.Converters.Add(
+                    new ArgonJsonConverterAdapter(
+                        new KeysJsonConverter(typeof(Employee))));
+            });
+        #endregion
     }
 }
