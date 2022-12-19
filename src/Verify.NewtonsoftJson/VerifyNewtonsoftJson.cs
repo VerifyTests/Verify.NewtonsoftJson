@@ -2,7 +2,9 @@
 
 public static class VerifyNewtonsoftJson
 {
-    public static void Enable() =>
+    public static void Enable()
+    {
+        InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings
             .AddExtraSettings(_ =>
             {
@@ -10,4 +12,5 @@ public static class VerifyNewtonsoftJson
                 converters.Add(new JArrayConverter());
                 converters.Add(new JObjectConverter());
             });
+    }
 }
