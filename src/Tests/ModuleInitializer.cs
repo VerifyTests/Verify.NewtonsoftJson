@@ -3,13 +3,12 @@
     #region enable
 
     [ModuleInitializer]
-    public static void Init()
-    {
-
+    public static void Init() =>
         VerifyNewtonsoftJson.Enable();
 
-        #endregion
+    #endregion
 
+    [ModuleInitializer]
+    public static void InitOther() =>
         VerifyDiffPlex.Initialize();
-    }
 }
