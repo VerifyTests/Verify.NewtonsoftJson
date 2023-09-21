@@ -6,6 +6,8 @@
 
 Adds [Verify](https://github.com/VerifyTests/Verify) support for converting Newtonsoft.Json types (JObject and JArray).
 
+**See [Milestones](../../milestones?state=closed) for release notes.**
+
 
 ## NuGet package
 
