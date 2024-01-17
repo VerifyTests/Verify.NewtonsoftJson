@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 
-[UsesVerify]
 public class Tests
 {
     string json = @"{
