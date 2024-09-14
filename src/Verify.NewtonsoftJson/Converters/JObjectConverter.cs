@@ -1,6 +1,4 @@
-﻿using System.Collections.Specialized;
-
-class JObjectConverter :
+﻿class JObjectConverter :
     WriteOnlyJsonConverter<JObject>
 {
     public override void Write(VerifyJsonWriter writer, JObject value)
