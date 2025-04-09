@@ -6,7 +6,7 @@
     <LangVersion>preview</LangVersion>
     <PackageTags>NodaTime, Verify</PackageTags>
     <Description>Adds Verify (https://github.com/VerifyTests/Verify) support for converting Newtonsoft.Json types (JObject and JArray)</Description>
-    <NoWarn>CS1591;NU5105</NoWarn>
+    <NoWarn>CS1591;NU5105;NU1608;NU1109</NoWarn>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
   </PropertyGroup>
