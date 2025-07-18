@@ -1,0 +1,1 @@
+Adds [Verify](https://github.com/VerifyTests/Verify) support for converting Newtonsoft.Json types (JObject and JArray).
